@@ -1,0 +1,354 @@
+     *** ECHO OF THE INPUT DATA STARTS ***
+
+Example 5.2.1: Nonlinear analysis of a hinged-hinged beam problem               
+  2   0   4                        MODEL,IEL,NEM                                
+  0.0  50.0                        X0,AL                                        
+  1  1  30.0E06  0.3               B,H,E,GNIU                                   
+                                                                                
+  0.0  0.0  0.0                    FX0,FX1,FX2                                  
+  2.0  0.0  0.0                    QX0,QX1,QX2                                  
+  5   0   0                        NSPV,NSSV,NSMB                               
+  1   1   0.0                       ISPV(1,1),ISPV(1,2),VSPV(1)                 
+  1   2   0.0                       ISPV(1,1),ISPV(1,2),VSPV(1)                 
+  1   3   0.0                       ISPV(1,1),ISPV(1,2),VSPV(1)                 
+  5   1   0.0                       ISPV(2,1),ISPV(2,2),VSPV(2)                 
+  5   3   0.0                       ISPV(3,1),ISPV(3,2),VSPV(3)                 
+                                                                                
+  1   0                            NONLIN,NPRNT                                 
+  10   50  1.0E-03  0.0             NLS, ITMAX, EPS, GAMA                       
+  2   1                            NGP, LGP                                     
+  0.1 0.1 0.1 0.1 0.1                                                           
+  0.1 0.1 0.1 0.1 0.1              DP(I)                                        
+                                                                                
+  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0                                               
+  0.0 0.0 0.0 0.0 0.0 0.0 0.0      GP1(I)                                       
+
+     **** ECHO OF THE INPUT DATA ENDS ****
+
+________________________________________________________________________________
+        Output from computer program  FEM1DBEAM              by J. N. Reddy
+________________________________________________________________________________
+
+
+Example 5.2.1: Nonlinear analysis of a hinged-hinged beam problem               
+
+    *** ANALYSIS OF MODEL  2 PROBLEM ***
+               (see the code below)
+
+    MODEL=1: A problem described by MODEL EQ. 1
+    MODEL=2: A Euler-Bernoulli BEAM problem
+    MODEL=3: A Timoshenko BEAM problem
+
+
+   P R O B L E M   D A T A:
+
+     Coordinate of node 1 ....................... =   0.0000E+00
+     Length of the beam ......................... =   0.5000E+02
+     Width of cross-section for the beam, B ..... =   0.1000E+01
+     Height of cross-section for the beam, H .... =   0.1000E+01
+     Elastic modulus of the beam material, E .... =   0.3000E+08
+     Axial stiffness for the beam, EA ........... =   0.3000E+08
+     Bending stiffness for the beam, EI ......... =   0.2500E+07
+     Coefficient of 1 in QX, QX0 ................ =   0.2000E+01
+     Coefficient of x in QX, QX1 ................ =   0.0000E+00
+     Coefficient of x*x in QX, QX2 .............. =   0.0000E+00
+     Coefficient of 1 in FX, FX0 ................ =   0.0000E+00
+     Coefficient of x in FX, FX1 ................ =   0.0000E+00
+     Coefficient of x*x in FX, FX2 .............. =   0.0000E+00
+
+
+   M E S H   D A T A:
+
+     Number of elements in the mesh, NEM......... =    4
+     Type of element(0:hermite;1:linear;2:quadratic;) .. =    0
+     Number of nodes in the mesh, NNM ........... =    5
+     Number of deg. of freedom per node, NDF..... =    3
+     Number of total DOF in the model, NEQ....... =   15
+     GLOBAL COORDINATES OF THE GLOBAL NODES ..... =
+
+        0.0000E+00   0.1250E+02   0.2500E+02   0.3750E+02   0.5000E+02
+
+          CONNECTIVITY MATRIX:
+
+              1    2
+              2    3
+              3    4
+              4    5
+
+   B O U N D A R Y   D A T A:
+
+     Number of specified PRIMARY variables ...... =    5
+     Specified PRIMARY degrees of freedom ....... :
+
+              1    1   0.0000E+00
+              1    2   0.0000E+00
+              1    3   0.0000E+00
+              5    1   0.0000E+00
+              5    3   0.0000E+00
+
+     *** NONLINEAR Analysis with DIRECT ITERATION ***
+
+
+   NONLINEAR  A N A L Y S I S   D A T A:
+
+     Number of load steps used, NLS ............. =   10
+     Maximum allowable number of iterations ..... =   50
+     Allowable convergence tolerance (EPS) ...... =   0.1000E-02
+     Acceleration parameter:GAMA*GP2+(1-GAMA)*GP1 =   0.0000E+00
+
+   INITIAL (GUESS) VECTOR:
+
+     0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00
+
+     First iteration solution at source value ... =  0.1000E+00
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.00000E+00
+         0.39876E-02   -0.54688E-03    0.00000E+00    0.11719E-01
+        -0.62500E-03    0.00000E+00    0.18311E-01   -0.39063E-03
+         0.00000E+00    0.20833E-01    0.00000E+00
+
+     Iteration Number =  1     Error=  0.1000E+01
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.00000E+00
+         0.39876E-02   -0.54688E-03    0.00000E+00    0.11719E-01
+        -0.62500E-03    0.00000E+00    0.18311E-01   -0.39063E-03
+         0.00000E+00    0.20833E-01    0.00000E+00
+
+
+   STEP NUMBER =  1   SOURCE VALUE =  0.1000E+00
+
+     Number of iterations taken for convergence.. =  2
+     The Euclidean norm of the solution error ... =  0.3160E-03
+     The CONVERGED solution is:
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.59819E-06
+         0.39866E-02   -0.54673E-03   -0.59116E-06    0.11715E-01
+        -0.62480E-03   -0.10654E-05    0.18305E-01   -0.39049E-03
+         0.00000E+00    0.20827E-01    0.00000E+00
+
+     Iteration Number =  1     Error=  0.5000E+00
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.11959E-05
+         0.79732E-02   -0.10935E-02   -0.11821E-05    0.23431E-01
+        -0.12496E-02   -0.21301E-05    0.36610E-01   -0.78097E-03
+         0.00000E+00    0.41653E-01    0.00000E+00
+
+
+   STEP NUMBER =  2   SOURCE VALUE =  0.2000E+00
+
+     Number of iterations taken for convergence.. =  2
+     The Euclidean norm of the solution error ... =  0.9387E-03
+     The CONVERGED solution is:
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.23889E-05
+         0.79669E-02   -0.10926E-02   -0.23627E-05    0.23410E-01
+        -0.12484E-02   -0.42563E-05    0.36575E-01   -0.78015E-03
+         0.00000E+00    0.41613E-01    0.00000E+00
+
+     Iteration Number =  1     Error=  0.3333E+00
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.35790E-05
+         0.11950E-01   -0.16388E-02   -0.35419E-05    0.35115E-01
+        -0.18726E-02   -0.63786E-05    0.54863E-01   -0.11702E-02
+         0.00000E+00    0.62420E-01    0.00000E+00
+
+     Iteration Number =  2     Error=  0.1559E-02
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.53577E-05
+         0.11935E-01   -0.16366E-02   -0.53074E-05    0.35064E-01
+        -0.18696E-02   -0.95531E-05    0.54778E-01   -0.11682E-02
+         0.00000E+00    0.62321E-01    0.00000E+00
+
+
+   STEP NUMBER =  3   SOURCE VALUE =  0.3000E+00
+
+     Number of iterations taken for convergence.. =  3
+     The Euclidean norm of the solution error ... =  0.9024E-05
+     The CONVERGED solution is:
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.53470E-05
+         0.11935E-01   -0.16366E-02   -0.53020E-05    0.35064E-01
+        -0.18696E-02   -0.95384E-05    0.54778E-01   -0.11682E-02
+         0.00000E+00    0.62322E-01    0.00000E+00
+
+     Iteration Number =  1     Error=  0.2500E+00
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.71294E-05
+         0.15913E-01   -0.21822E-02   -0.70693E-05    0.46752E-01
+        -0.24928E-02   -0.12718E-04    0.73037E-01   -0.15576E-02
+         0.00000E+00    0.83095E-01    0.00000E+00
+
+     Iteration Number =  2     Error=  0.2171E-02
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.94793E-05
+         0.15884E-01   -0.21780E-02   -0.94124E-05    0.46657E-01
+        -0.24872E-02   -0.16921E-04    0.72879E-01   -0.15538E-02
+         0.00000E+00    0.82911E-01    0.00000E+00
+
+
+   STEP NUMBER =  4   SOURCE VALUE =  0.4000E+00
+
+     Number of iterations taken for convergence.. =  3
+     The Euclidean norm of the solution error ... =  0.2221E-04
+     The CONVERGED solution is:
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.94530E-05
+         0.15885E-01   -0.21781E-02   -0.93991E-05    0.46658E-01
+        -0.24872E-02   -0.16885E-04    0.72881E-01   -0.15538E-02
+         0.00000E+00    0.82913E-01    0.00000E+00
+
+     Iteration Number =  1     Error=  0.2000E+00
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.11817E-04
+         0.19856E-01   -0.27226E-02   -0.11749E-04    0.58323E-01
+        -0.31091E-02   -0.21107E-04    0.91101E-01   -0.19422E-02
+         0.00000E+00    0.10364E+00    0.00000E+00
+
+     Iteration Number =  2     Error=  0.2772E-02
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.14718E-04
+         0.19810E-01   -0.27160E-02   -0.14660E-04    0.58171E-01
+        -0.31002E-02   -0.26311E-04    0.90848E-01   -0.19362E-02
+         0.00000E+00    0.10335E+00    0.00000E+00
+
+
+   STEP NUMBER =  5   SOURCE VALUE =  0.5000E+00
+
+     Number of iterations taken for convergence.. =  3
+     The Euclidean norm of the solution error ... =  0.4394E-04
+     The CONVERGED solution is:
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.14666E-04
+         0.19811E-01   -0.27161E-02   -0.14633E-04    0.58174E-01
+        -0.31003E-02   -0.26240E-04    0.90852E-01   -0.19363E-02
+         0.00000E+00    0.10335E+00    0.00000E+00
+
+     Iteration Number =  1     Error=  0.1667E+00
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.17600E-04
+         0.23773E-01   -0.32593E-02   -0.17561E-04    0.69808E-01
+        -0.37204E-02   -0.31489E-04    0.10902E+00   -0.23235E-02
+         0.00000E+00    0.12402E+00    0.00000E+00
+
+     Iteration Number =  2     Error=  0.3359E-02
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.21029E-04
+         0.23706E-01   -0.32497E-02   -0.21026E-04    0.69589E-01
+        -0.37075E-02   -0.37661E-04    0.10866E+00   -0.23147E-02
+         0.00000E+00    0.12360E+00    0.00000E+00
+
+
+   STEP NUMBER =  6   SOURCE VALUE =  0.6000E+00
+
+     Number of iterations taken for convergence.. =  3
+     The Euclidean norm of the solution error ... =  0.7591E-04
+     The CONVERGED solution is:
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.20939E-04
+         0.23708E-01   -0.32500E-02   -0.20981E-04    0.69594E-01
+        -0.37078E-02   -0.37539E-04    0.10867E+00   -0.23149E-02
+         0.00000E+00    0.12361E+00    0.00000E+00
+
+     Iteration Number =  1     Error=  0.1429E+00
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.24432E-04
+         0.27659E-01   -0.37916E-02   -0.24479E-04    0.81193E-01
+        -0.43257E-02   -0.43798E-04    0.12678E+00   -0.27007E-02
+         0.00000E+00    0.14421E+00    0.00000E+00
+
+     Iteration Number =  2     Error=  0.3929E-02
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.28359E-04
+         0.27569E-01   -0.37786E-02   -0.28486E-04    0.80894E-01
+        -0.43082E-02   -0.50899E-04    0.12628E+00   -0.26888E-02
+         0.00000E+00    0.14363E+00    0.00000E+00
+
+
+   STEP NUMBER =  7   SOURCE VALUE =  0.7000E+00
+
+     Number of iterations taken for convergence.. =  3
+     The Euclidean norm of the solution error ... =  0.1195E-03
+     The CONVERGED solution is:
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.28219E-04
+         0.27572E-01   -0.37790E-02   -0.28414E-04    0.80903E-01
+        -0.43087E-02   -0.50708E-04    0.12629E+00   -0.26891E-02
+         0.00000E+00    0.14365E+00    0.00000E+00
+
+     Iteration Number =  1     Error=  0.1250E+00
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.32256E-04
+         0.31510E-01   -0.43189E-02   -0.32476E-04    0.92461E-01
+        -0.49242E-02   -0.57958E-04    0.14434E+00   -0.30733E-02
+         0.00000E+00    0.16417E+00    0.00000E+00
+
+     Iteration Number =  2     Error=  0.4480E-02
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.36650E-04
+         0.31393E-01   -0.43020E-02   -0.37007E-04    0.92074E-01
+        -0.49015E-02   -0.65945E-04    0.14369E+00   -0.30578E-02
+         0.00000E+00    0.16342E+00    0.00000E+00
+
+
+   STEP NUMBER =  8   SOURCE VALUE =  0.8000E+00
+
+     Number of iterations taken for convergence.. =  3
+     The Euclidean norm of the solution error ... =  0.1755E-03
+     The CONVERGED solution is:
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.36446E-04
+         0.31397E-01   -0.43027E-02   -0.36902E-04    0.92089E-01
+        -0.49024E-02   -0.65664E-04    0.14372E+00   -0.30584E-02
+         0.00000E+00    0.16345E+00    0.00000E+00
+
+     Iteration Number =  1     Error=  0.1111E+00
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.41011E-04
+         0.35322E-01   -0.48405E-02   -0.41519E-04    0.10360E+00
+        -0.55151E-02   -0.73884E-04    0.16168E+00   -0.34407E-02
+         0.00000E+00    0.18388E+00    0.00000E+00
+
+     Iteration Number =  2     Error=  0.5009E-02
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.45838E-04
+         0.35175E-01   -0.48194E-02   -0.46556E-04    0.10311E+00
+        -0.54867E-02   -0.82708E-04    0.16087E+00   -0.34212E-02
+         0.00000E+00    0.18294E+00    0.00000E+00
+
+
+   STEP NUMBER =  9   SOURCE VALUE =  0.9000E+00
+
+     Number of iterations taken for convergence.. =  3
+     The Euclidean norm of the solution error ... =  0.2447E-03
+     The CONVERGED solution is:
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.45555E-04
+         0.35182E-01   -0.48204E-02   -0.46410E-04    0.10314E+00
+        -0.54881E-02   -0.82319E-04    0.16091E+00   -0.34222E-02
+         0.00000E+00    0.18299E+00    0.00000E+00
+
+     Iteration Number =  1     Error=  0.9999E-01
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.50633E-04
+         0.39091E-01   -0.53560E-02   -0.51574E-04    0.11460E+00
+        -0.60978E-02   -0.91486E-04    0.17879E+00   -0.38024E-02
+         0.00000E+00    0.20332E+00    0.00000E+00
+
+     Iteration Number =  2     Error=  0.5514E-02
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.55856E-04
+         0.38912E-01   -0.53303E-02   -0.57098E-04    0.11401E+00
+        -0.60631E-02   -0.10110E-03    0.17781E+00   -0.37788E-02
+         0.00000E+00    0.20218E+00    0.00000E+00
+
+
+   STEP NUMBER = 10   SOURCE VALUE =  0.1000E+01
+
+     Number of iterations taken for convergence.. =  3
+     The Euclidean norm of the solution error ... =  0.3273E-03
+     The CONVERGED solution is:
+
+         0.00000E+00    0.00000E+00    0.00000E+00    0.55481E-04
+         0.38922E-01   -0.53318E-02   -0.56903E-04    0.11404E+00
+        -0.60652E-02   -0.10058E-03    0.17787E+00   -0.37802E-02
+         0.00000E+00    0.20225E+00    0.00000E+00

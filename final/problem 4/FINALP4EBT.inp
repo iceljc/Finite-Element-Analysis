@@ -1,0 +1,25 @@
+Example 5.2.1: Nonlinear analysis of a hinged-hinged beam problem
+  2   0   8                        MODEL,IEL,NEM
+  0.0  5.0                        X0,AL
+  1.0  0.1  3.0E07 3.0E06         B,H,E1,E2
+  0.3  0.8333  5                  GNIU,SK,PN
+                                 
+  0.0  0.0  0.0                    FX0,FX1,FX2
+  1.0  0.0  0.0                    QX0,QX1,QX2  
+                                                                                                                 
+  4   0   0                        NSPV,NSSV,NSMB
+  1   1   0.0                       ISPV(1,1),ISPV(1,2),VSPV(1)
+  1   2   0.0                       ISPV(1,1),ISPV(1,2),VSPV(1)      
+  9   1   0.0                       ISPV(2,1),ISPV(2,2),VSPV(2)  
+  9   3   0.0                       ISPV(3,1),ISPV(3,2),VSPV(3)  
+  
+  2   0                            NONLIN,NPRNT                                                      
+  20  30   1.0E-03  0.25           NLS, ITMAX, EPS, GAMA
+  3   2                            NGP, LGP
+  5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0
+  5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0 5.0     DP(I)                        
+  
+  0.0 0.0 0.0 0.0 0.0 0.0 0.0 
+  0.0 0.0 0.0 0.0 0.0 0.0 0.0
+  0.0 0.0 0.0 0.0 0.0 0.0 0.0
+  0.0 0.0 0.0 0.0 0.0 0.0          GP1(I)

@@ -1,0 +1,190 @@
+     *** ECHO OF THE INPUT DATA STARTS ***
+
+Test Problem 1:                                                                 
+  1.0  0.0  0.0  0.0  0.0  0.0     AX0,AX1,AU1,AU2,AUX1,AUX2                    
+  0.0  0.0  0.0  0.0  0.0  0.0     BX0,BX1,BU1,BU2,BUX1,BUX2                    
+  0.0  0.0  0.0  2.0  0.0  0.0     CX0,CX1,CU1,CU2,CUX1,CUX2                    
+  0.0  0.0  0.0  0.0  0.0  0.0     FX0,FX1,FX2                                  
+                                                                                
+  1.0  1.0                         X0,AL                                        
+  1    8                           IEL, NEM                                     
+                                                                                
+  1    0   1                       NSPV, NSSV, NSMB                             
+  1    1   1.0                     ISPV(I,J),VSPV(I)                            
+  9    1   0.0  0.0  1.0           ISMB(I,J),ISMB(I,J),UREF(I),BETA0(I),BETAU(I)
+                                                                                
+  1    0                           NONLIN, NPRNT                                
+  1    20   1.0E-03   0.0          NLS, ITMAX, EPS, GAMA                        
+  1.0                              DP(I)                                        
+                                                                                
+  1.0  1.0  1.0  1.0  1.0  1.0                                                  
+  1.0  1.0  1.0                     GP1(I)                                      
+
+     **** ECHO OF THE INPUT DATA ENDS ****
+
+________________________________________________________________________________
+        Output from computer program  FEM1DIUNSYM              by J. N. Reddy
+________________________________________________________________________________
+
+
+Test Problem 1:                                                                 
+
+     A ONE-D SECOND-ORDER problem is analyzed
+
+   P R O B L E M   D A T A:
+
+     Coordinate of node 1 ....................... =   0.1000E+01
+     Length of the domain modeled ............... =   0.1000E+01
+     Coefficient of 1 in AX, AX0 ................ =   0.1000E+01
+     Coefficient of x in AX, AX1 ................ =   0.0000E+00
+     Coefficient of u in AX, AU1 ................ =   0.0000E+00
+     Coefficient of u*u in AX, AU2 .............. =   0.0000E+00
+     Coefficient of du/dx in AX, AUX1 ........... =   0.0000E+00
+     Coefficient of (du/dx)*(du/dx) in AX, AUX2.. =   0.0000E+00
+     Coefficient of 1 in BX, BX0 ................ =   0.0000E+00
+     Coefficient of x in BX, BX1 ................ =   0.0000E+00
+     Coefficient of u in BX, BU1 ................ =   0.0000E+00
+     Coefficient of u*u in BX, BU2 .............. =   0.0000E+00
+     Coefficient of du/dx in BX, BUX1 ........... =   0.0000E+00
+     Coefficient of (du/dx)*(du/dx) in BX, BUX2.. =   0.0000E+00
+     Coefficient of 1 in CX, CX0 ................ =   0.0000E+00
+     Coefficient of x in CX, CX1 ................ =   0.0000E+00
+     Coefficient of u in CX, CU1 ................ =   0.0000E+00
+     Coefficient of u*u in CX, CU2 .............. =   0.2000E+01
+     Coefficient of du/dx in CX, CUX1 ........... =   0.0000E+00
+     Coefficient of (du/dx)*(du/dx) in CX, CUX2.. =   0.0000E+00
+     Coefficient of 1 in FX, FX0 ................ =   0.0000E+00
+     Coefficient of x in FX, FX1................. =   0.0000E+00
+     Coefficient of x*x in FX, FX2 .............. =   0.0000E+00
+
+
+   M E S H   D A T A:
+
+     Number of elements in the mesh, NEM......... =    8
+     Type of element (1: linear; 2: quadratic) .. =    1
+     Number of nodes in the mesh, NNM ........... =    9
+     GLOBAL COORDINATES OF THE GLOBAL NODES ..... =
+
+        0.1000E+01   0.1125E+01   0.1250E+01   0.1375E+01   0.1500E+01
+        0.1625E+01   0.1750E+01   0.1875E+01   0.2000E+01
+
+   B O U N D A R Y   D A T A:
+
+     Number of specified PRIMARY variables ...... =    1
+     Specified PRIMARY degrees of freedom ....... :
+
+              1    1   0.1000E+01
+
+     Number of specified MIXED B.C. ........ =    1
+     Specified MIXED variables (BETA0+BETAU)*(U-UREF).. :
+
+              9    1   0.0000E+00   0.1000E+01   0.0000E+00
+
+     *** NONLINEAR Analysis with DIRECT ITERATION ***
+
+
+   NONLINEAR  A N A L Y S I S   D A T A:
+
+     Number of load steps used, NLS ............. =    1
+     Maximum allowable number of iterations ..... =   20
+     Allowable convergence tolerance (EPS) ...... =   0.1000E-02
+     Acceleration parameter:GAMA*GP2+(1-GAMA)*GP1 =   0.0000E+00
+
+   INITIAL (GUESS) VECTOR:
+
+     0.10000E+01  0.10000E+01  0.10000E+01  0.10000E+01  0.10000E+01  0.10000E+01  0.10000E+01  0.10000E+01  0.10000E+01
+
+     First iteration solution at source value ... =  0.1000E+01
+
+         0.10000E+01    0.84135E+00    0.70912E+00    0.59917E+00
+         0.50805E+00    0.43288E+00    0.37131E+00    0.32141E+00
+         0.28160E+00
+
+     Iteration Number =  1     Error=  0.8132E+00
+
+         0.10000E+01    0.84135E+00    0.70912E+00    0.59917E+00
+         0.50805E+00    0.43288E+00    0.37131E+00    0.32141E+00
+         0.28160E+00
+
+     Iteration Number =  2     Error=  0.3232E+00
+
+         0.10000E+01    0.91651E+00    0.85379E+00    0.80477E+00
+         0.76497E+00    0.73145E+00    0.70229E+00    0.67621E+00
+         0.65235E+00
+
+     Iteration Number =  3     Error=  0.2328E+00
+
+         0.10000E+01    0.87306E+00    0.76941E+00    0.68352E+00
+         0.61159E+00    0.55094E+00    0.49956E+00    0.45592E+00
+         0.41883E+00
+
+     Iteration Number =  4     Error=  0.1205E+00
+
+         0.10000E+01    0.89799E+00    0.81781E+00    0.75302E+00
+         0.69938E+00    0.65402E+00    0.61494E+00    0.58069E+00
+         0.55026E+00
+
+     Iteration Number =  5     Error=  0.7620E-01
+
+         0.10000E+01    0.88325E+00    0.78916E+00    0.71180E+00
+         0.64720E+00    0.59259E+00    0.54596E+00    0.50583E+00
+         0.47106E+00
+
+     Iteration Number =  6     Error=  0.4292E-01
+
+         0.10000E+01    0.89187E+00    0.80591E+00    0.73588E+00
+         0.67765E+00    0.62840E+00    0.58611E+00    0.54932E+00
+         0.51696E+00
+
+     Iteration Number =  7     Error=  0.2589E-01
+
+         0.10000E+01    0.88678E+00    0.79602E+00    0.72166E+00
+         0.65966E+00    0.60723E+00    0.56235E+00    0.52356E+00
+         0.48973E+00
+
+     Iteration Number =  8     Error=  0.1500E-01
+
+         0.10000E+01    0.88977E+00    0.80182E+00    0.73000E+00
+         0.67022E+00    0.61964E+00    0.57627E+00    0.53865E+00
+         0.50566E+00
+
+     Iteration Number =  9     Error=  0.8903E-02
+
+         0.10000E+01    0.88801E+00    0.79841E+00    0.72509E+00
+         0.66400E+00    0.61233E+00    0.56807E+00    0.52975E+00
+         0.49626E+00
+
+     Iteration Number = 10     Error=  0.5210E-02
+
+         0.10000E+01    0.88904E+00    0.80042E+00    0.72798E+00
+         0.66765E+00    0.61663E+00    0.57289E+00    0.53497E+00
+         0.50178E+00
+
+     Iteration Number = 11     Error=  0.3074E-02
+
+         0.10000E+01    0.88844E+00    0.79924E+00    0.72628E+00
+         0.66550E+00    0.61410E+00    0.57005E+00    0.53190E+00
+         0.49853E+00
+
+     Iteration Number = 12     Error=  0.1805E-02
+
+         0.10000E+01    0.88879E+00    0.79993E+00    0.72728E+00
+         0.66677E+00    0.61558E+00    0.57172E+00    0.53371E+00
+         0.50044E+00
+
+     Iteration Number = 13     Error=  0.1063E-02
+
+         0.10000E+01    0.88858E+00    0.79952E+00    0.72669E+00
+         0.66602E+00    0.61471E+00    0.57074E+00    0.53264E+00
+         0.49932E+00
+
+
+   STEP NUMBER =  1   SOURCE VALUE =  0.1000E+01
+
+     Number of iterations taken for convergence.. = 14
+     The Euclidean norm of the solution error ... =  0.6248E-03
+     The CONVERGED solution is:
+
+         0.10000E+01    0.88871E+00    0.79976E+00    0.72704E+00
+         0.66646E+00    0.61522E+00    0.57132E+00    0.53327E+00
+         0.49998E+00

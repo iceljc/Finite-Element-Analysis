@@ -1,0 +1,16 @@
+Example 4.4.1: Nonlinear analysis of a problem (DI) 
+  0.0  0.0  1.0  0.0  0.0  0.0     AX0,AX1,AU1,AU2,AUX1,AUX2
+  0.0  0.0  0.0  0.0  0.0  0.0     BX0,BX1,BU1,BU2,BUX1,BUX2
+  0.0  0.0  0.0  0.0  0.0  0.0     CX0,CX1,CU1,CU2,CUX1,CUX2                              
+ -1.0  0.0  0.0  0.0  0.0  0.0     FX0,FX1,FX2
+
+  0.0  1.0                         X0,AL
+  2    2                           IEL, NEM
+  1    0   0                       NSPV, NSSV, NSMB
+  5    1   1.4142                  ISPV(I,J),VSPV(I)
+  2    0                           NONLIN, NPRNT                                                      
+  1    10   1.0E-03   0.0          NLS, ITMAX, EPS, GAMA                        
+  1.0                              DP(I)
+  1.0  1.0  1.0  1.0  1.4142       GP1(I)
+  
+  
